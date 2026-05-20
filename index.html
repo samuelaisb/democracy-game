@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Democracy — A Political Adventure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header comic-panel">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">🗳</span>
+        <h1>Democracy</h1>
+        <p class="tagline">Campaign. Govern. Survive the polls.</p>
+      </div>
+      <div class="header-badges">
+        <div class="act-badge" id="act-badge">Prologue</div>
+        <div class="env-badge" id="env-badge" hidden>—</div>
+        <div class="term-badge" id="term-badge" hidden>
+          <span class="term-label">Year</span>
+          <span class="term-value" id="term-value">1</span>
+        </div>
+      </div>
+    </header>
+
+    <aside class="dashboard comic-panel" id="dashboard" aria-label="Government profile">
+      <h2 class="dashboard-title">Your profile</h2>
+      <div class="approval-meter">
+        <div class="meter-header">
+          <span class="meter-label">Public approval</span>
+          <span class="meter-value" id="approval-value">50%</span>
+        </div>
+        <div class="approval-track">
+          <div class="approval-fill" id="approval-fill"></div>
+        </div>
+        <div class="meter-ends"><span>Mob</span><span>Hero</span></div>
+      </div>
+      <div class="meters">
+        <div class="meter" data-axis="economic">
+          <div class="meter-header">
+            <span class="meter-label">Economic</span>
+            <span class="meter-value" id="economic-label">Centrist</span>
+          </div>
+          <div class="meter-track">
+            <div class="meter-fill" id="economic-fill"></div>
+            <div class="meter-marker" id="economic-marker"></div>
+          </div>
+          <div class="meter-ends"><span>Left</span><span>Right</span></div>
+        </div>
+        <div class="meter" data-axis="social">
+          <div class="meter-header">
+            <span class="meter-label">Social</span>
+            <span class="meter-value" id="social-label">Centrist</span>
+          </div>
+          <div class="meter-track">
+            <div class="meter-fill" id="social-fill"></div>
+            <div class="meter-marker" id="social-marker"></div>
+          </div>
+          <div class="meter-ends"><span>Progressive</span><span>Traditional</span></div>
+        </div>
+        <div class="meter" data-axis="authority">
+          <div class="meter-header">
+            <span class="meter-label">Governance</span>
+            <span class="meter-value" id="authority-label">Balanced</span>
+          </div>
+          <div class="meter-track">
+            <div class="meter-fill" id="authority-fill"></div>
+            <div class="meter-marker" id="authority-marker"></div>
+          </div>
+          <div class="meter-ends"><span>Libertarian</span><span>Authoritarian</span></div>
+        </div>
+      </div>
+      <section class="npc-panel" id="npc-panel" hidden>
+        <h3 class="npc-panel-title">Canvass map</h3>
+        <ul class="npc-list" id="npc-list"></ul>
+      </section>
+      <p class="dashboard-hint">NPC leanings are randomized each playthrough.</p>
+    </aside>
+
+    <main class="stage">
+      <div class="comic-portrait-wrap" aria-hidden="true">
+        <div class="comic-portrait" id="comic-portrait">🗳️</div>
+      </div>
+
+      <article class="scene-card comic-panel" id="scene-card">
+        <p class="scene-eyebrow" id="scene-eyebrow">Prologue</p>
+        <h2 class="scene-title" id="scene-title">Where will you fight?</h2>
+        <div class="scene-body" id="scene-body"></div>
+        <div class="election-panel comic-panel" id="election-panel" hidden></div>
+        <div class="choices" id="choices" role="group" aria-label="Your decision"></div>
+      </article>
+
+      <section class="ending-panel comic-panel" id="ending-panel" hidden>
+        <p class="ending-eyebrow">Finale</p>
+        <h2 class="ending-title" id="ending-title"></h2>
+        <p class="ending-subtitle" id="ending-subtitle"></p>
+        <div class="ending-body" id="ending-body"></div>
+        <div class="ending-profile" id="ending-profile"></div>
+        <button type="button" class="btn btn-primary" id="restart-btn">Play again</button>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Baldur’s Gate–style choices · Comic drama · Three acts: campaign, govern, judgment.</p>
+    </footer>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
