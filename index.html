@@ -6,14 +6,14 @@
   <title>Democracy — A Political Adventure</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bangers&family=Comic+Neue:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="app">
     <header class="header comic-panel">
       <div class="brand">
-        <span class="brand-mark" aria-hidden="true">🗳</span>
+        <span class="brand-mark" id="brand-mark" aria-hidden="true"></span>
         <h1>Democracy</h1>
         <p class="tagline">Campaign. Govern. Survive the polls.</p>
       </div>
@@ -78,34 +78,54 @@
         <h3 class="npc-panel-title">Canvass map</h3>
         <ul class="npc-list" id="npc-list"></ul>
       </section>
+      <section class="promise-panel" id="promise-panel" hidden>
+        <h3 class="npc-panel-title">Promise debt</h3>
+        <ul class="promise-list" id="promise-list"></ul>
+      </section>
+      <section class="faction-panel" id="faction-panel" hidden>
+        <h3 class="npc-panel-title">Faction pulse</h3>
+        <ul class="faction-list" id="faction-list"></ul>
+      </section>
       <p class="dashboard-hint">NPC leanings are randomized each playthrough.</p>
     </aside>
 
     <main class="stage">
-      <div class="comic-portrait-wrap" aria-hidden="true">
-        <div class="comic-portrait" id="comic-portrait">🗳️</div>
+      <div class="act-banner" id="act-banner" hidden aria-live="polite">
+        <span class="act-banner-label" id="act-banner-label"></span>
+        <span class="act-banner-flavor" id="act-banner-flavor"></span>
       </div>
 
-      <article class="scene-card comic-panel" id="scene-card">
-        <p class="scene-eyebrow" id="scene-eyebrow">Prologue</p>
-        <h2 class="scene-title" id="scene-title">Where will you fight?</h2>
-        <div class="scene-body" id="scene-body"></div>
-        <div class="election-panel comic-panel" id="election-panel" hidden></div>
-        <div class="choices" id="choices" role="group" aria-label="Your decision"></div>
-      </article>
+      <div class="stage-row">
+        <div class="comic-portrait-wrap" id="portrait-wrap" hidden>
+          <div class="comic-portrait" id="comic-portrait"></div>
+        </div>
 
-      <section class="ending-panel comic-panel" id="ending-panel" hidden>
-        <p class="ending-eyebrow">Finale</p>
-        <h2 class="ending-title" id="ending-title"></h2>
-        <p class="ending-subtitle" id="ending-subtitle"></p>
-        <div class="ending-body" id="ending-body"></div>
-        <div class="ending-profile" id="ending-profile"></div>
-        <button type="button" class="btn btn-primary" id="restart-btn">Play again</button>
-      </section>
+        <div class="stage-content">
+          <article class="scene-card comic-panel" id="scene-card">
+            <div class="scene-header-strip" aria-hidden="true"></div>
+            <p class="scene-eyebrow" id="scene-eyebrow">Prologue</p>
+            <h2 class="scene-title" id="scene-title">Choose your campaign map</h2>
+            <div class="scene-body" id="scene-body"></div>
+            <div class="election-panel comic-panel" id="election-panel" hidden></div>
+            <div class="choices" id="choices" role="group" aria-label="Your decision"></div>
+          </article>
+
+          <section class="ending-panel comic-panel broadsheet-panel" id="ending-panel" hidden>
+            <div class="scene-header-strip" aria-hidden="true"></div>
+            <p class="ending-eyebrow">Finale</p>
+            <h2 class="ending-title" id="ending-title"></h2>
+            <p class="ending-subtitle" id="ending-subtitle"></p>
+            <blockquote class="ending-pullquote" id="ending-pullquote" hidden></blockquote>
+            <div class="ending-body" id="ending-body"></div>
+            <div class="ending-profile" id="ending-profile"></div>
+            <button type="button" class="btn btn-primary" id="restart-btn">Play again</button>
+          </section>
+        </div>
+      </div>
     </main>
 
     <footer class="footer">
-      <p>Baldur’s Gate–style choices · Comic drama · Three acts: campaign, govern, judgment.</p>
+      <p>Point-and-click political choices · Comic drama · Three acts: campaign, govern, judgment.</p>
     </footer>
   </div>
 
