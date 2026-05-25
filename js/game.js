@@ -6,6 +6,7 @@ import {
   computeElectionResult,
 } from './npcs.js';
 import { environments, canonicalEnvironmentId } from './environments.js';
+import { buildCanvassReactionLine, resetCanvassReactionHistory } from './reactions.js';
 
 const AXIS_MIN = -50;
 const AXIS_MAX = 50;
@@ -243,6 +244,7 @@ const CRISIS_TEMPLATES_BY_ENV = {
 /** @typedef {import('./environments.js').EnvironmentId} EnvironmentId */
 
 export function createInitialState() {
+  resetCanvassReactionHistory();
   return {
     sceneId: 'env_select',
     act: 0,
@@ -659,35 +661,3 @@ export function promiseLabel(promiseId) {
   return PROMISE_RULES[promiseId]?.label ?? promiseId.replace(/_/g, ' ');
 }
 
-function buildCanvassReactionLine(npc, choice) {
-  const attitude = (choice.swayNpc ?? 0) >= 0.2 ? 'warm' : (choice.swayNpc ?? 0) <= -0.2 ? 'cold' : 'mixed';
-
-  if (choice.npcApproach === 'mirror') {
-    if (attitude === 'warm') {
-      return `"That is the first thing today that sounded like you actually listened," ${npc.name} says. "Keep that tone and you will have people like me."`;
-    }
-    return `"You are saying what I wanted to hear," ${npc.name} says, unconvinced. "Now prove you mean it."`;
-  }
-
-  if (choice.npcApproach === 'challenge') {
-    if (attitude === 'cold') {
-      return `${npc.name} stiffens. "Then we are not allies. I appreciate your honesty, but do not expect my support."`;
-    }
-    return `"I do not agree, but at least you are not hiding behind slogans," ${npc.name} says.`;
-  }
-
-  if (choice.npcApproach === 'favour') {
-    if (attitude === 'warm') {
-      return `${npc.name} lowers their voice. "Concrete help beats campaign poetry. If this is real, we can do business."`;
-    }
-    return `"That sounds like a deal," ${npc.name} says carefully. "Deals are remembered."`;
-  }
-
-  if (attitude === 'warm') {
-    return `${npc.name} exhales. "That sounded human, not scripted. I needed that."`;
-  }
-  if (attitude === 'cold') {
-    return `"A story is nice," ${npc.name} replies, "but I still need policy I can trust."`;
-  }
-  return `"I hear you," ${npc.name} says. "I am still deciding whether to believe you."`;
-}

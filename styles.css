@@ -16,6 +16,9 @@
   --traditional: #bc6c25;
   --libertarian: #52b788;
   --authoritarian: #9d4edd;
+  --completed: #2f9e44;
+  --completed-soft: #d3f9d8;
+  --completed-deep: #1f6d2f;
   --radius: 5px;
   --comic-shadow: 5px 5px 0 var(--border);
   --comic-shadow-soft: 3px 3px 0 var(--border);
@@ -1171,6 +1174,48 @@ body[data-act='0'] .scene-header-strip {
 
 .choice-btn--consensus {
   border-left-color: var(--left);
+}
+
+.choice-btn--completed {
+  background: linear-gradient(135deg, var(--completed-soft) 0%, #ecfbef 60%, #ffffff 100%);
+  border-color: var(--completed-deep);
+  border-left-color: var(--completed);
+  border-left-width: 7px;
+  box-shadow:
+    4px 4px 0 var(--completed-deep),
+    inset 0 0 0 1px rgba(47, 158, 68, 0.18);
+}
+
+.choice-btn--completed .choice-index {
+  background: var(--completed);
+  border-color: var(--completed-deep);
+}
+
+.choice-btn--completed:hover {
+  background: linear-gradient(135deg, #b6f0c4 0%, var(--completed-soft) 70%, #ffffff 100%);
+  box-shadow: 6px 6px 0 var(--completed-deep);
+}
+
+.choice-completed-badge {
+  display: inline-block;
+  margin-left: 0.45rem;
+  padding: 0.05rem 0.5rem 0.1rem;
+  background: var(--completed);
+  color: #fff;
+  border: 2px solid var(--completed-deep);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  box-shadow: 1px 1px 0 var(--completed-deep);
+}
+
+.choice-completed-badge::before {
+  content: '\2713';
+  margin-right: 0.25rem;
+  font-weight: 900;
 }
 
 .choice-btn:hover {

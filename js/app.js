@@ -13,6 +13,46 @@ import { environments, canonicalEnvironmentId } from './environments.js';
 import { npcSupportScore, factionSupportScore } from './npcs.js';
 import { portraitEmoji, brandBallotSvg } from './portraits.js';
 
+const COMPLETED_MAPS_COOKIE = 'democracy_completed_maps';
+const COMPLETED_MAPS_COOKIE_MAX_AGE = 60 * 60 * 24 * 365 * 5;
+
+function readCompletedMapsFromCookie() {
+  if (typeof document === 'undefined' || !document.cookie) return new Set();
+  const prefix = `${COMPLETED_MAPS_COOKIE}=`;
+  const raw = document.cookie
+    .split(';')
+    .map((part) => part.trim())
+    .find((part) => part.startsWith(prefix));
+  if (!raw) return new Set();
+  try {
+    const decoded = decodeURIComponent(raw.slice(prefix.length));
+    if (!decoded) return new Set();
+    return new Set(
+      decoded
+        .split(',')
+        .map((id) => id.trim())
+        .filter(Boolean)
+    );
+  } catch {
+    return new Set();
+  }
+}
+
+function persistCompletedMaps(set) {
+  if (typeof document === 'undefined') return;
+  const value = encodeURIComponent([...set].join(','));
+  document.cookie = `${COMPLETED_MAPS_COOKIE}=${value}; path=/; max-age=${COMPLETED_MAPS_COOKIE_MAX_AGE}; SameSite=Lax`;
+}
+
+const completedMaps = readCompletedMapsFromCookie();
+
+function markEnvironmentCompleted(environmentId) {
+  const canonical = canonicalEnvironmentId(environmentId);
+  if (!canonical || completedMaps.has(canonical)) return;
+  completedMaps.add(canonical);
+  persistCompletedMaps(completedMaps);
+}
+
 const state = createInitialState();
 
 const sceneCard = document.getElementById('scene-card');
@@ -163,7 +203,7 @@ function showActBanner(act) {
       actBanner.hidden = true;
       actBanner.classList.remove('act-banner--fading');
     }, 650);
-  }, 5000);
+  }, 2500);
 }
 
 function isDialogue(text, scene) {
@@ -503,10 +543,19 @@ function renderScene() {
     const btn = document.createElement('button');
     btn.type = 'button';
     const hintCls = choiceHintClass(choice.hint ?? '');
-    btn.className = hintCls ? `choice-btn ${hintCls}` : 'choice-btn';
+    const choiceEnvId = choice.setEnv ? canonicalEnvironmentId(choice.setEnv) : null;
+    const isCompletedMap = Boolean(choiceEnvId && completedMaps.has(choiceEnvId));
+    const classes = ['choice-btn'];
+    if (hintCls) classes.push(hintCls);
+    if (isCompletedMap) classes.push('choice-btn--completed');
+    btn.className = classes.join(' ');
     btn.innerHTML = `
       <span class="choice-index">${i + 1}</span>
-      <span class="choice-text">${choice.text}</span>
+      <span class="choice-text">${choice.text}${
+        isCompletedMap
+          ? ' <span class="choice-completed-badge" aria-label="Map completed">Completed</span>'
+          : ''
+      }</span>
       ${choice.hint ? `<span class="choice-hint">${choice.hint}</span>` : ''}
     `;
     btn.addEventListener('click', () => {
@@ -527,6 +576,10 @@ function showEnding() {
   if (portraitWrap) portraitWrap.hidden = true;
 
   applyTheme();
+
+  if (state.sceneId === 'end' && state.environmentId) {
+    markEnvironmentCompleted(state.environmentId);
+  }
 
   const ending = resolveEnding(state);
   endingTitle.textContent = ending.title;

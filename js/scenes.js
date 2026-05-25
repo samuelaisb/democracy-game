@@ -18,27 +18,27 @@ export const scenes = {
     ],
     choices: [
       {
-        text: 'Small farming town in Quebec',
+        text: 'Small Farming Town in Quebec',
         next: 'act1_intro',
         setEnv: 'quebec_town',
         environmentKey: 'qc_small_town',
-        environmentLabel: 'Small farming town in Quebec',
+        environmentLabel: 'Small Farming Town in Quebec',
         hint: 'Local ridings & rural priorities',
       },
       {
-        text: 'suburban municipality in Ontario',
+        text: 'Suburban Municipality in Ontario',
         next: 'act1_intro',
         setEnv: 'ontario_suburb',
         environmentKey: 'on_suburban_municipality',
-        environmentLabel: 'suburban municipality in Ontario',
+        environmentLabel: 'Suburban Municipality in Ontario',
         hint: 'Commuter issues & school boards',
       },
       {
-        text: 'Larger city in British Columbia (Vancouver)',
+        text: 'Large City in British Columbia (Vancouver)',
         next: 'act1_intro',
         setEnv: 'vancouver_city',
         environmentKey: 'bc_large_city_vancouver',
-        environmentLabel: 'Larger city in British Columbia (Vancouver)',
+        environmentLabel: 'Large City in British Columbia (Vancouver)',
         hint: 'Urban pressure cooker',
       },
       {
@@ -58,11 +58,11 @@ export const scenes = {
         hint: 'Remote governance trade-offs',
       },
       {
-        text: 'Canada (whole)',
+        text: 'Canada (Whole)',
         next: 'act1_intro',
         setEnv: 'canada_whole',
         environmentKey: 'canada_whole',
-        environmentLabel: 'Canada (whole)',
+        environmentLabel: 'Canada (Whole)',
         hint: 'National campaign scale',
       },
     ],
@@ -74,7 +74,7 @@ export const scenes = {
     eyebrow: 'Act I — Running for office',
     title: 'The long road to power',
     body: [
-      'You are nobody until the ballots — or favours — say otherwise. Patrons want loyalty. Crowds want bread. Idealists want tomorrow.',
+      'You are nobody until ballots - and backers - say otherwise. Donors want loyalty. Crowds want relief. Idealists want tomorrow.',
       'How you campaign determines who believes you when it matters.',
     ],
     choices: [
@@ -111,20 +111,20 @@ export const scenes = {
     ],
     choices: [
       {
-        text: 'Volunteer ladder: training nights, neighborhood captains, clear next steps',
+        text: 'Build a volunteer ladder with neighborhood captains',
         next: 'act1_social_media',
         effects: { approval: 4, campaignKnowledge: 10, authority: -3 },
         hint: 'Organizing capacity',
       },
       {
-        text: 'Consultant-heavy operation: polished outreach, limited volunteer control',
+        text: 'Run consultant-led outreach with tight message control',
         next: 'act1_social_media',
         effects: { authority: 4, campaignKnowledge: 2, approval: -1 },
         coalition: 'elite',
         hint: 'Professional machine',
       },
       {
-        text: 'Issue pop-ups only: mobilize fast around viral moments',
+        text: 'Mobilize through issue pop-ups and viral moments',
         next: 'act1_social_media',
         effects: { approval: 1, campaignKnowledge: 4, misinformationRisk: 6, rivalHeat: 4 },
         hint: 'Reactive organizing',
@@ -143,26 +143,26 @@ export const scenes = {
     ],
     choices: [
       {
-        text: 'Transparency-first: source every claim and fund independent fact checks',
+        text: 'Source every claim and fund fact-checking',
         next: 'act1_rivalry',
         effects: { approval: 3, mediaLiteracy: 12, misinformationRisk: -10, authority: -2 },
         hint: 'Trust over speed',
       },
       {
-        text: 'Grey-zone spin: emotionally loaded clips and selective context',
+        text: 'Push emotional clips with selective context',
         next: 'act1_rivalry',
         effects: { approval: 5, mediaLiteracy: -3, misinformationRisk: 10, rivalHeat: 8 },
         hint: 'Misinformation edge',
       },
       {
-        text: 'Astroturf burst: paid “grassroots” pages and bot-amplified outrage',
+        text: 'Fund fake grassroots pages and bot outrage',
         next: 'act1_rivalry',
         effects: { approval: 8, mediaLiteracy: -10, misinformationRisk: 18, rivalHeat: 12 },
         coalition: 'patrons',
         hint: 'Astroturfing gamble',
       },
       {
-        text: 'Community explainers: livestream Q&A and myth-busting with local groups',
+        text: 'Host local livestream Q&A and myth-busting',
         next: 'act1_rivalry',
         effects: { approval: 4, mediaLiteracy: 9, campaignKnowledge: 5, misinformationRisk: -6 },
         hint: 'Civic education',
@@ -181,19 +181,19 @@ export const scenes = {
     ],
     choices: [
       {
-        text: 'Hard contrast: expose contradictions and force direct debates',
+        text: 'Draw hard contrasts and force direct debates',
         next: 'act1_fundraising',
         effects: { approval: 2, rivalHeat: 10, authority: 3 },
         hint: 'Combat campaign',
       },
       {
-        text: 'Issue truce: no personal attacks, compete on policy receipts',
+        text: 'No personal attacks; compete on policy records',
         next: 'act1_fundraising',
         effects: { approval: 3, rivalHeat: -8, campaignKnowledge: 4, institutionalTrust: 5 },
         hint: 'Democratic norms',
       },
       {
-        text: 'Backchannel pact: split messaging lanes, avoid direct collisions',
+        text: 'Make a backchannel pact to avoid collisions',
         next: 'act1_fundraising',
         effects: { approval: -2, rivalHeat: -2, misinformationRisk: 6, authority: 2 },
         coalition: 'broad_coalition',
@@ -208,25 +208,25 @@ export const scenes = {
     eyebrow: 'Act I — War chest',
     title: 'Who pays for your voice?',
     body: [
-      'Posters, guards, feasts, and favours — power has a price. The purse strings you accept now will be remembered.',
+      'Ads, staff, security, and organizing cost real money. The funding relationships you accept now will follow you into office.',
     ],
     choices: [
       {
-        text: 'Merchant guilds — low taxes, fewer inspections',
+        text: 'Business donors: lower taxes, lighter oversight',
         next: 'act1_npc_talk',
         effects: { economic: 10, budgetRoom: 8 },
         coalition: 'merchants',
         hint: 'Business right',
       },
       {
-        text: 'Labour halls & mutual-aid societies',
+        text: 'Labour halls and mutual-aid networks',
         next: 'act1_npc_talk',
         effects: { economic: -10, social: -4, campaignKnowledge: 5 },
         coalition: 'workers',
         hint: 'Organized left',
       },
       {
-        text: 'Mixed small donors — no single master',
+        text: 'Small-donor base with no single patron',
         next: 'act1_npc_talk',
         effects: { approval: 6, authority: -2, mediaLiteracy: 4, misinformationRisk: -4 },
         hint: 'Independent image',
@@ -238,9 +238,9 @@ export const scenes = {
     id: 'act1_promises',
     act: 1,
     eyebrow: 'Act I — The platform',
-    title: 'What do you swear to deliver?',
+    title: 'What do you promise to deliver?',
     body: [
-      'You have met the shapers of public opinion. Now bind yourself in words the whole realm can repeat.',
+      'You have met the people shaping public opinion. Now define a platform every outlet can repeat.',
       'Choose two pillars for your platform. Contradictions cost trust at the ballot.',
     ],
     choices: [
@@ -279,18 +279,18 @@ export const scenes = {
     id: 'act1_promises_2',
     act: 1,
     eyebrow: 'Act I — The platform',
-    title: 'Your second vow',
-    body: ['One promise is on the record. The crowd waits for the other shoe to drop.'],
+    title: 'Your second promise',
+    body: ['One promise is on record. Voters now wait for the second.'],
     choices: [
       {
-        text: 'Order above all — curfews, spies, swift justice',
+        text: 'Order first: curfews, surveillance, rapid sentencing',
         next: 'election_night',
         promise: 'order',
         effects: { authority: 12 },
         hint: 'Security state',
       },
       {
-        text: 'Liberty above all — limits on power, open trials',
+        text: 'Liberty first: strict limits on state power',
         next: 'election_night',
         promise: 'liberty',
         effects: { authority: -12 },
@@ -304,7 +304,7 @@ export const scenes = {
         hint: 'Pragmatic centre',
       },
       {
-        text: 'Solidarity forever — nobody left behind',
+        text: 'Solidarity first: leave no one behind',
         next: 'election_night',
         promise: 'public_services',
         effects: { economic: -6, approval: 5 },
@@ -362,28 +362,28 @@ export const scenes = {
     act: 2,
     year: 1,
     eyebrow: 'Act II — Political relationships',
-    title: 'On-party and cross-party dealings',
+    title: 'Managing Party and Opposition Relations',
     body: [
       'Your caucus wants rewards. Opposition members want influence. Bureaucrats want clear direction and fewer late-night reversals.',
       'How you treat fellow officials now will either unlock coalitions or harden sabotage.',
     ],
     choices: [
       {
-        text: 'Cross-party policy working groups with transparent minutes',
+        text: 'Form cross-party groups and publish clear minutes',
         next: 'act2_policy',
         effects: { approval: 5, authority: -4, institutionalTrust: 10 },
         coalition: 'unity',
         hint: 'Bridge-building',
       },
       {
-        text: 'Reward loyalists, isolate rivals, centralize negotiations',
+        text: 'Reward loyalists and centralize all negotiations',
         next: 'act2_policy',
         effects: { authority: 7, approval: -3, institutionalTrust: -8, rivalHeat: 5 },
         coalition: 'patrons',
         hint: 'Inner-circle governance',
       },
       {
-        text: 'Transactional dealmaking issue-by-issue across all blocs',
+        text: 'Cut transactional deals issue by issue',
         next: 'act2_policy',
         effects: { approval: 2, authority: 1, institutionalTrust: 2, budgetRoom: -4 },
         coalition: 'broad_coalition',
@@ -399,11 +399,11 @@ export const scenes = {
     eyebrow: 'Act II — First legislation',
     title: 'The signature bill',
     body: [
-      'Sponsors knock. Protesters drum. Your first great law will tell the realm what you truly value.',
+      'Donors call. Protesters rally. Your first major bill tells the country what you actually value.',
     ],
     choices: [
       {
-        text: 'Nationalise strategic industry & fund public works',
+        text: 'Nationalize key industries and fund public works',
         next: 'act2_crisis',
         effects: { economic: -14, approval: 6 },
         coalition: 'workers',
@@ -419,7 +419,7 @@ export const scenes = {
         hint: 'Market revolution',
       },
       {
-        text: 'Carbon levy + child benefits — technocratic package',
+        text: 'Pass a carbon levy with child benefits',
         next: 'act2_crisis',
         effects: { economic: -4, social: -4, approval: 3 },
         promiseDelta: { public_services: 14, tax_relief: 10 },
@@ -439,7 +439,7 @@ export const scenes = {
     ],
     choices: [
       {
-        text: 'Invoke emergency powers; postpone the opposition',
+        text: 'Invoke emergency powers and sideline opposition',
         next: 'act2_coalition',
         effects: { authority: 16, approval: -10 },
         promiseDelta: { order: 24, liberty: -22, rights: -16 },
@@ -453,7 +453,7 @@ export const scenes = {
         hint: 'Democratic brinkmanship',
       },
       {
-        text: 'Buy peace — subsidies for allies, investigations for enemies',
+        text: 'Trade subsidies for allies and probes for enemies',
         next: 'act2_coalition',
         effects: { economic: -6, approval: 2 },
         coalition: 'patrons',
@@ -470,7 +470,7 @@ export const scenes = {
     eyebrow: 'Act II — Coalitions',
     title: 'Who stands with you?',
     body: [
-      'Your majority frays. You can widen the tent or purge the doubters — both have a body count in polling.',
+      'Your majority is fraying. You can widen the coalition or tighten discipline; both choices carry political costs.',
     ],
     choices: [
       {
@@ -489,7 +489,7 @@ export const scenes = {
         hint: 'Partisan purity',
       },
       {
-        text: 'Plebiscite — let the people ratify your course',
+        text: 'Hold a plebiscite to ratify your course',
         next: 'act3_polling',
         effects: { authority: -12, approval: 10 },
         promiseDelta: { liberty: 18, rights: 10, order: -8 },
@@ -503,20 +503,20 @@ export const scenes = {
     act: 3,
     year: 4,
     eyebrow: 'Act III — Judgment',
-    title: 'The poll that decides your neck',
+    title: 'The poll that defines your legacy',
     body: [
-      'Years of compromise calcify into a number. Approval. Fear. Memory of promises kept or broken.',
-      'The realm asks: hero, mediocrity, or head on a pike?',
+      'Years of compromise collapse into one number: approval, distrust, and memory of promises kept or broken.',
+      'Voters now decide whether your term delivered, drifted, or did damage.',
     ],
     choices: [
       {
-        text: 'Victory lap tour — remind them what you built',
+        text: 'Take a victory lap on what you built',
         next: 'end',
         effects: { approval: 8 },
         hint: 'Boost popularity',
       },
       {
-        text: 'Quiet retirement — leave before the mob gathers',
+        text: 'Exit quietly before backlash hardens',
         next: 'end',
         effects: { approval: -5, authority: -6 },
         hint: 'Timid exit',
@@ -528,7 +528,7 @@ export const scenes = {
         hint: 'High risk',
       },
       {
-        text: 'Truth and reconciliation commission — air every grievance',
+        text: 'Launch truth and reconciliation hearings',
         next: 'end',
         effects: { approval: 5, social: -8, authority: -8 },
         hint: 'Moral reckoning',
@@ -720,32 +720,165 @@ const NPC_TYPE_LINES = {
 /**
  * Flavored choice labels for each NPC type.
  * Keys: mirror | challenge | favour | personal
+ * Grouped by environment to match NPC_TYPE_LINES above.
  */
 const NPC_TYPE_CHOICES = {
+  // Quebec town
   'Dairy farmer': {
     mirror: 'Promise stable quotas, better roads, and local agriculture support',
     challenge: 'Argue tough reforms are needed to keep farms competitive',
     favour: 'Offer fuel relief and priority winter clearing for farm routes',
     personal: 'Share a story about early mornings, weather, and hard margins',
   },
+  'Maple cooperative chief': {
+    mirror: 'Pledge co-op support, faster shipping permits, and less admin during harvest',
+    challenge: 'Argue some consolidation is needed to compete on national markets',
+    favour: 'Offer a dedicated co-op liaison and priority freight slots',
+    personal: 'Talk about your own family\u2019s short, frantic harvest seasons',
+  },
+  'French school principal': {
+    mirror: 'Promise francophone funding, more teachers, and stable bus routes',
+    challenge: 'Push back: enrolment trends force tough school consolidation choices',
+    favour: 'Offer a targeted language-hiring fund for their school next year',
+    personal: 'Share what one good teacher meant to you growing up',
+  },
+  'Village priest': {
+    mirror: 'Promise food-bank top-ups, elder care, and community centre funding',
+    challenge: 'Argue charity alone cannot replace structural welfare reform',
+    favour: 'Offer parish-anchored grants and a senior transport pilot',
+    personal: 'Speak quietly about families you have seen go hungry',
+  },
+  'Snowplow union steward': {
+    mirror: 'Commit to fair contracts, modern equipment, and realistic storm budgets',
+    challenge: 'Argue route reform and tech upgrades will hurt before they help',
+    favour: 'Offer a multi-year fleet renewal deal and locked salt budgets',
+    personal: 'Tell a story about a near-miss on an icy backroad',
+  },
+  // Ontario suburb
   'Commuter parent': {
     mirror: 'Promise transit reliability, safer routes, and childcare support',
     challenge: 'Be blunt: long-term fixes require short-term construction pain',
     favour: 'Offer a commuter rebate and school-route safety pilot',
     personal: 'Talk honestly about family schedules and burnout',
   },
+  'Condo board president': {
+    mirror: 'Promise repair loans, insurance reform, and clearer building standards',
+    challenge: 'Push back: owners must accept higher reserve contributions long-term',
+    favour: 'Offer city-backed financing for their tower\u2019s next structural fix',
+    personal: 'Admit you have lost sleep over your own home maintenance',
+  },
+  'GO transit advocate': {
+    mirror: 'Commit to frequent service, integrated fares, and transit-first growth',
+    challenge: 'Argue dense corridors must come before suburban rail expansion',
+    favour: 'Offer a guaranteed ribbon-cut station in their riding',
+    personal: 'Tell them about a commute that changed how you think about cities',
+  },
+  'Small business strip owner': {
+    mirror: 'Promise tax predictability, faster permits, and protected foot traffic',
+    challenge: 'Be blunt: roadwork delays now save years of crumbling repairs later',
+    favour: 'Offer a construction relief grant and a parking reroute plan',
+    personal: 'Share what running a counter taught you about politics',
+  },
+  'Youth soccer coach': {
+    mirror: 'Promise recreation funding, lit fields, and family-friendly schedules',
+    challenge: 'Argue league fees should reflect facility costs going forward',
+    favour: 'Offer a turf upgrade and a league sponsorship from the city',
+    personal: 'Talk about a kid whose week depended on practice nights',
+  },
+  // Vancouver city
   'Housing activist': {
     mirror: 'Commit to real housing delivery targets and tenant protections',
     challenge: 'Push back: supply growth still needs broad neighborhood buy-in',
     favour: 'Offer concrete zoning wins in their priority districts',
     personal: 'Admit your own frustration with performative housing politics',
   },
+  'Port logistics manager': {
+    mirror: 'Commit to port modernization, labor stability, and freight reliability',
+    challenge: 'Argue automation rollout cannot wait for every union review',
+    favour: 'Offer fast-tracked terminal upgrades and federal coordination support',
+    personal: 'Share a memory of a midnight call when one container line broke',
+  },
+  'Film industry producer': {
+    mirror: 'Promise stable tax credits, predictable permits, and neighborhood liaisons',
+    challenge: 'Argue local hiring quotas must come bundled with the credits this time',
+    favour: 'Offer a dedicated permit desk and a priority location list',
+    personal: 'Talk about a shoot that nearly collapsed and what saved it',
+  },
+  'Climate scientist': {
+    mirror: 'Back adaptation funding, emissions cuts, and resilient infrastructure',
+    challenge: 'Argue current models force harder, faster trade-offs than anyone wants',
+    favour: 'Offer a funded advisory seat and a dedicated research grant stream',
+    personal: 'Speak honestly about the fear behind your last conference talk',
+  },
+  'Downtown tenant organizer': {
+    mirror: 'Promise rent enforcement, eviction limits, and non-market housing builds',
+    challenge: 'Push back: blanket rent freezes choke supply over the long run',
+    favour: 'Offer legal aid funding and a tenant seat on housing policy',
+    personal: 'Share a memory of your own bad landlord or unstable rental',
+  },
+  // Entire provinces
+  'Atlantic fisheries minister': {
+    mirror: 'Promise quota protections, coastal investment, and regional authority',
+    challenge: 'Argue stock collapses force shorter seasons whether anyone likes it',
+    favour: 'Offer a dedicated fisheries fund and federal port upgrades',
+    personal: 'Talk about the smell of the docks and the families behind every boat',
+  },
+  'Prairie energy lobbyist': {
+    mirror: 'Promise energy certainty, transition timelines, and stable regulation',
+    challenge: 'Argue the transition window is shorter than their members admit',
+    favour: 'Offer transition subsidies and protected upstream investment',
+    personal: 'Share a story about a town that lived and died with one industry',
+  },
+  'Quebec nationalist MLA': {
+    mirror: 'Respect provincial autonomy, language laws, and fiscal fairness',
+    challenge: 'Argue some national files genuinely cannot be devolved further',
+    favour: 'Offer formal jurisdiction guarantees and a federal-Quebec working table',
+    personal: 'Talk plainly about culture, memory, and what you actually owe Quebec',
+  },
+  'Ontario hospital CEO': {
+    mirror: 'Promise stable transfers, workforce retention, and infrastructure renewal',
+    challenge: 'Argue performance targets must accompany any new funding',
+    favour: 'Offer accelerated capital funding and nursing retention bonuses',
+    personal: 'Share what a hallway-medicine shift looked like to you',
+  },
+  'BC wildfire responder': {
+    mirror: 'Back prevention funding, response coordination, and climate readiness',
+    challenge: 'Argue evacuations must trigger earlier even when communities resist',
+    favour: 'Offer a guaranteed fleet expansion and federal mutual-aid agreements',
+    personal: 'Talk about the night a fire jumped a road you thought was safe',
+  },
+  // Northwest Territories
   'Dene community elder': {
     mirror: 'Commit to consultation-led governance and local decision power',
     challenge: 'Argue emergency response files need tighter territorial timelines',
     favour: 'Offer funded consultation teams and language support services',
     personal: 'Listen first, then promise explicit accountability dates',
   },
+  'Northern nurse': {
+    mirror: 'Promise staffing incentives, telehealth reliability, and medevac capacity',
+    challenge: 'Argue rotating southern staff cannot replace permanent retention',
+    favour: 'Offer northern hiring bonuses and a guaranteed medevac upgrade',
+    personal: 'Share what a 36-hour shift in a one-nurse clinic feels like',
+  },
+  'Mining operations lead': {
+    mirror: 'Promise infrastructure reliability, clear permits, and community partnerships',
+    challenge: 'Argue stricter consent processes will slow projects on purpose',
+    favour: 'Offer a streamlined permits desk and matched road funding',
+    personal: 'Talk about a project that only worked because of a local handshake',
+  },
+  'Bush pilot': {
+    mirror: 'Promise maintained airstrips, affordable fuel, and reliable emergency contracts',
+    challenge: 'Argue safety inspections need to bite even when it grounds planes',
+    favour: 'Offer a fuel subsidy and guaranteed medevac route contracts',
+    personal: 'Share a story about flying in weather you should have refused',
+  },
+  'Climate adaptation coordinator': {
+    mirror: 'Back resilient housing, relocation support, and long-horizon adaptation funds',
+    challenge: 'Argue some communities will need to move sooner than they want to plan',
+    favour: 'Offer permafrost monitoring funding and a dedicated relocation unit',
+    personal: 'Talk about the day a familiar map stopped matching the ground',
+  },
+  // Canada whole
   'Union organizer': {
     mirror: 'Back stronger labor standards and enforceable bargaining rights',
     challenge: 'Argue phased changes protect jobs during economic shocks',
@@ -757,6 +890,24 @@ const NPC_TYPE_CHOICES = {
     challenge: 'Argue growth without protections creates brittle inequality',
     favour: 'Offer innovation tax support and a public-sector pilot contract',
     personal: 'Discuss risk, failure, and building under uncertainty',
+  },
+  'Rural mayor': {
+    mirror: 'Commit to rural broadband, clinic staffing, and reliable highways',
+    challenge: 'Argue some service consolidation is unavoidable across small towns',
+    favour: 'Offer a small-towns infrastructure envelope and quarterly check-ins',
+    personal: 'Talk about a council meeting that taught you what rural means',
+  },
+  'Indigenous leader': {
+    mirror: 'Commit to treaty implementation, clean water timelines, and shared authority',
+    challenge: 'Be candid about which federal levers you genuinely cannot move alone',
+    favour: 'Offer co-developed legislation and stable nation-to-nation funding',
+    personal: 'Listen first; then name what you got wrong before this meeting',
+  },
+  'Suburban parent': {
+    mirror: 'Promise affordability relief, school funding, and shorter commutes',
+    challenge: 'Argue middle-class targeting must not crowd out lower-income aid',
+    favour: 'Offer a childcare top-up and a school catchment review',
+    personal: 'Talk honestly about your own weekly budget anxieties',
   },
 };
 
@@ -773,11 +924,11 @@ export function getNpcTalkScene(npc, envId, index, total, npcReaction = null) {
 
   const openingQuote = typeLines
     ? typeLines.quote(npc.name)
-    : `"${env?.flavor.split('.')[0] ?? 'The realm'} watches," ${npc.name} says. "Convince me you mean what you sell."`;
+    : `"${env?.flavor.split('.')[0] ?? 'The country'} is watching," ${npc.name} says. "Convince me you mean what you are selling."`;
 
   const concernLine = typeLines
     ? typeLines.concern
-    : `They lean ${econ} on purse strings, ${soc} on culture, ${auth} on how hard the state should grip.`;
+    : `They lean ${econ} on public spending, ${soc} on culture, ${auth} on how hard the state should intervene.`;
 
   const choices = npcReaction
     ? [
@@ -857,7 +1008,7 @@ export function getElectionScene(state) {
   const won = result?.won ?? false;
 
   const body = [
-    `${env?.electionLabel ?? 'Votes'} roll in across ${env?.title ?? 'the realm'}, district by district under first-past-the-post rules.`,
+    `${env?.electionLabel ?? 'Votes'} roll in across ${env?.title ?? 'the country'}, district by district under first-past-the-post rules.`,
     won
       ? `You take ${result?.seatsWon ?? 0} of ${result?.seatsTotal ?? 0} seats with ${pct}% aggregate favour. Allies cheer; enemies already plot your first mistake.`
       : `You finish with ${result?.seatsWon ?? 0} of ${result?.seatsTotal ?? 0} seats and ${pct}% aggregate favour — short of power.`,
@@ -886,22 +1037,22 @@ export const endings = [
     id: 'beloved_leader',
     match: () => true,
     title: 'Beloved — for now',
-    subtitle: 'The crowd carries you home.',
+    subtitle: 'Public support holds, for now.',
     body: [
-      'Approval holds. Statues are discussed, not toppled. Whether you earned it or performed it, the people choose to keep you.',
-      'Historians will argue about the gap between your rhetoric and your record. For now, the streets are yours.',
+      'Approval holds. Whether you earned it or staged it well, voters choose continuity over upheaval.',
+      'Commentators will argue about the gap between your rhetoric and your record. For now, your coalition still has room to breathe.',
       'Legacy is a long game. You have bought yourself time to play it.',
     ],
   },
   {
     id: 'revolution_fury',
     match: () => true,
-    title: 'The fury of the mob',
-    subtitle: 'Polling became a death sentence.',
+    title: 'Backlash in the streets',
+    subtitle: 'Polling became political collapse.',
     body: [
-      'Promises rotted into insults. Coalitions broke. When the final numbers landed, the street answered with rope, blade, or exile.',
-      'They do not burn portraits of leaders they never believed in. The fire is a form of disappointed love.',
-      'Whatever comes next will cite your name as a warning. That, too, is a kind of legacy.',
+      'Promises curdled into resentment. Coalitions fractured. When the final numbers landed, protests became the only story in the country.',
+      'Your party retreats, investigations multiply, and allies distance themselves in real time.',
+      'Whatever comes next will cite your term as a warning. That, too, is a kind of legacy.',
     ],
   },
   {
